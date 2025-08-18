@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredReadList } from "../../Utility/ReadList";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -6,6 +7,10 @@ const BookDetails = () => {
   const data = useLoaderData();
 
   const book = data.find((books) => books.bookId === id);
+
+  const handleReadList = (id) => {
+    addToStoredReadList(id);
+  };
 
   const {
     bookName,
@@ -74,7 +79,10 @@ const BookDetails = () => {
 
         {/* Buttons */}
         <div className="flex gap-4">
-          <button className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow">
+          <button
+            onClick={() => handleReadList(bookId)}
+            className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow"
+          >
             Read
           </button>
           <button className="px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-lg shadow">
