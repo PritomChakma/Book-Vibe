@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import Home from './assets/Components/Home/Home.jsx'
 import BookDetails from './assets/Components/BooksDetails/BookDetails.jsx'
+import ReaadList from './assets/Components/ReadList/ReaadList.jsx'
+import Login from './assets/Components/Login/Login.jsx'
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
         path:"/book/:bookId",
         element:<BookDetails></BookDetails>,
         loader:()=>fetch("./../public/booksData.json")
+      },
+      {
+        path:"/readList",
+        element:<ReaadList></ReaadList>
+      },
+      {
+        path:"/login",
+        element: <Login></Login>
       }
     ]
   },
